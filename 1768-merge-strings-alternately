@@ -1,0 +1,30 @@
+Easy
+
+You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string.
+
+Return the merged string.
+
+Solution:
+
+class Solution {
+public:
+    string mergeAlternately(string word1, string word2) {
+        int i = 0, j= 0;
+        string res ="";
+        while(i<word1.size() && j<word2.size()){
+            res += word1[i];
+            res += word2[j];
+            i++;
+            j++;
+        }
+        while(i<word1.size()){
+            res += word1[i];
+            i++;
+        }
+        while(j<word2.size()){
+            res += word2[j];
+            j++;
+        }
+        return res;
+    }
+};
