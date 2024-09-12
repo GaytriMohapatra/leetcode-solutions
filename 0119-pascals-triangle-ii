@@ -1,0 +1,32 @@
+Easy
+
+Given an integer rowIndex, return the rowIndexth (0-indexed) row of the Pascal's triangle.
+
+In Pascal's triangle, each number is the sum of the two numbers directly above it.
+
+Solution:
+
+class Solution {
+public:
+    int nCr(int n, int r){
+        long long res = 1;
+
+        for(int i = 0; i<r; i++){
+            res = res*(n-i);
+            res = res/(i+1);
+        }
+        return (int)res;
+    }
+public:
+    vector<int> getRow(int rowIndex) {
+        vector<int>ans = {1};
+
+        if(rowIndex == 0) return ans; //first row
+
+        for(int i = 2; i<=rowIndex+1; i++){
+            ans.push_back(nCr(rowIndex, i-1));
+        }
+
+        return ans;
+    }
+};
